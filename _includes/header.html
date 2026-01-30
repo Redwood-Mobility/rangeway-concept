@@ -10,13 +10,50 @@
         <span class="logo-text">Rangeway</span>
       </a>
       
+      <!-- Hamburger button (mobile/tablet) -->
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      
       <div class="nav-links">
         <a href="#experience">Experience</a>
         <a href="https://pathfinderrewards.com" target="_blank" rel="noopener">Pathfinder Rewards</a>
         <a href="https://newsroom.rangeway.energy" target="_blank" rel="noopener">Newsroom</a>
         <a href="https://investors.rangewayev.com" target="_blank" rel="noopener">Investors</a>
         <a href="https://fieldnotes.rangewayev.com" class="btn btn-warm btn-sm">Subscribe</a>
+        
+        <!-- Social icons (shown in mobile menu) -->
+        <div class="nav-social">
+          <a href="https://twitter.com/rangewayev" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://instagram.com/rangewayev" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://linkedin.com/company/rangeway-energy" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
       </div>
     </div>
   </nav>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-links');
+    const header = document.querySelector('.site-header');
+    
+    toggle.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
+    });
+    
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      });
+    });
+  });
+</script>

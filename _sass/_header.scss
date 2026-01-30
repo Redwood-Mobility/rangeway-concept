@@ -63,13 +63,111 @@
   letter-spacing: -0.02em;
 }
 
+// Hamburger toggle button
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+  
+  .hamburger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: $white;
+    border-radius: 2px;
+    transition: background $transition-fast;
+    
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background: $white;
+      border-radius: 2px;
+      transition: transform $transition-base;
+    }
+    
+    &::before {
+      top: -7px;
+    }
+    
+    &::after {
+      top: 7px;
+    }
+  }
+  
+  &.is-open .hamburger {
+    background: transparent;
+    
+    &::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+    
+    &::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
 .nav-links {
+  // Desktop styles
   display: none;
   align-items: center;
   gap: $space-lg;
   
-  @media (min-width: $bp-md) {
+  @media (min-width: $bp-lg) {
     display: flex;
+  }
+  
+  // Mobile menu styles
+  @media (max-width: $bp-lg - 1) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    padding: 5rem $space-lg $space-lg;
+    background: $charcoal-deep;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform $transition-base;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    
+    &.is-open {
+      display: flex;
+      transform: translateX(0);
+    }
+    
+    a:not(.btn) {
+      display: block;
+      width: 100%;
+      padding: $space-sm 0;
+      font-size: 1.125rem;
+      border-bottom: 1px solid rgba($white, 0.1);
+    }
+    
+    .btn {
+      margin-top: $space-md;
+      width: 100%;
+      text-align: center;
+    }
   }
   
   a:not(.btn) {
@@ -84,20 +182,61 @@
       color: $white;
     }
     
-    // Subtle underline on hover
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: $warm;
-      transition: width $transition-base;
+    // Subtle underline on hover (desktop only)
+    @media (min-width: $bp-lg) {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $warm;
+        transition: width $transition-base;
+      }
+      
+      &:hover::after {
+        width: 100%;
+      }
     }
+  }
+}
+
+// Social icons in mobile nav
+.nav-social {
+  display: flex;
+  gap: $space-sm;
+  margin-top: auto;
+  padding-top: $space-lg;
+  
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba($white, 0.1);
+    color: rgba($white, 0.7);
+    font-size: 1.25rem;
+    transition: background $transition-fast, color $transition-fast;
     
-    &:hover::after {
-      width: 100%;
+    &:hover {
+      background: $warm;
+      color: $charcoal;
     }
+  }
+}
+
+// Body scroll lock when nav is open
+body.nav-open {
+  overflow: hidden;
+  
+  @media (min-width: $bp-lg) {
+    overflow: auto;
   }
 }
