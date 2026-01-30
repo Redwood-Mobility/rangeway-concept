@@ -1,0 +1,132 @@
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-warm {
+  background: $warm;
+  color: $charcoal;
+  
+  &:hover {
+    background: $warm-dark;
+    box-shadow: 0 8px 24px rgba($warm, 0.3);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid currentColor;
+  
+  &:hover {
+    background: rgba($white, 0.1);
+  }
+}
+
+.btn-sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+// Kicker text
+.kicker {
+  display: block;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $warm;
+  margin-bottom: $space-sm;
+}
+
+// Feature cards
+.card {
+  background: rgba($white, 0.05);
+  border-radius: 16px;
+  padding: $space-lg;
+  
+  h3 {
+    margin-bottom: $space-xs;
+  }
+  
+  p {
+    color: $gray-400;
+    font-size: 1rem;
+  }
+}
+
+.card-light {
+  background: $white;
+  
+  p {
+    color: $gray-600;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+  gap: $space-md;
+}
+
+.grid-2 {
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid-3 {
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $bp-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Icon boxes
+.icon-box {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($warm, 0.15);
+  border-radius: 12px;
+  margin-bottom: $space-sm;
+  font-size: 1.5rem;
+}
+
+// Tier badges
+.tier-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 100px;
+  background: rgba($warm, 0.2);
+  color: $warm;
+}

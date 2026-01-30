@@ -1,0 +1,30 @@
+title: Rangeway
+tagline: Premium EV Hospitality
+description: Experience the first climate-controlled Driver's Lounges. Where charging becomes part of the journey.
+url: https://concept.rangewayev.com
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude:
+  - AGENTS.md
+  - SKILLS/
+  - reference/
+  - logos/rangeway-brand-final.html
+  - logos/rangeway-brand-reference.html
+  - logos/rangeway-brand-guidelines.docx
+  - logos/rangeway-brand-guidelines.pdf
+  - logos/rangeway-logo-concepts.html
+  - logos/brand.html
+  - "*.md"
+
+# Sass
+sass:
+  style: compressed
+
+# Collections
+collections_dir: ""
+
+plugins:
+  - jekyll-seo-tag

@@ -1,0 +1,120 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: $charcoal;
+  background: $cream;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+  margin-bottom: 1em;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-fast;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+  
+  @media (min-width: $bp-lg) {
+    padding: 0 $space-lg;
+  }
+}
+
+.container-narrow {
+  max-width: 800px;
+}
+
+// Sections
+.section {
+  padding: $space-xl 0;
+  
+  @media (min-width: $bp-md) {
+    padding: $space-xxl 0;
+  }
+}
+
+.section-dark {
+  background: $charcoal;
+  color: $white;
+}
+
+.section-cream {
+  background: $cream;
+}
+
+.section-sage {
+  background: $sage;
+  color: $white;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-warm {
+  color: $warm;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
