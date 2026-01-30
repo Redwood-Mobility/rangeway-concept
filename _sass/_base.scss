@@ -1,3 +1,49 @@
+// ==========================================================================
+// Light/Dark Mode CSS Custom Properties
+// ==========================================================================
+
+:root {
+  // Light mode (default)
+  --color-bg: #{$cream};
+  --color-bg-alt: #{$white};
+  --color-text: #{$charcoal};
+  --color-text-muted: #{$gray-600};
+  --color-heading: #{$charcoal-deep};
+  --color-border: #{$gray-200};
+  --color-card-bg: #{$white};
+  --color-warm: #{$warm};
+  --color-warm-hover: #{$warm-hover};
+  --color-sage: #{$sage};
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --footer-logo-r: #{$charcoal};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // Dark mode
+    --color-bg: #{$charcoal-deep};
+    --color-bg-alt: #{$charcoal};
+    --color-text: #{$cream};
+    --color-text-muted: #{$gray-300};
+    --color-heading: #{$white};
+    --color-border: #{$charcoal-light};
+    --color-card-bg: #{$charcoal};
+    --color-warm: #{$warm};
+    --color-warm-hover: #{$warm-hover};
+    --color-sage: #{$sage};
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --footer-logo-r: #{$cream};
+  }
+}
+
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+
 *,
 *::before,
 *::after {
@@ -17,11 +63,12 @@ body {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.7;
-  color: $charcoal;
-  background: $cream;
+  color: var(--color-text);
+  background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 // Typography Hierarchy
@@ -82,7 +129,7 @@ img, svg {
 // Selection styling
 ::selection {
   background: rgba($warm, 0.3);
-  color: $charcoal;
+  color: var(--color-heading);
 }
 
 // Focus visible for all interactive elements

@@ -3,7 +3,7 @@
 // ==========================================================================
 
 .experience-section {
-  background: $cream;
+  background: var(--color-bg);
   position: relative;
 }
 
@@ -14,12 +14,12 @@
   
   h2 {
     margin-bottom: $space-sm;
-    color: $charcoal;
+    color: var(--color-heading);
   }
   
   p {
     font-size: 1.1875rem;
-    color: $gray-600;
+    color: var(--color-text-muted);
     line-height: 1.7;
   }
 }
@@ -39,16 +39,16 @@
 }
 
 .experience-card {
-  background: $white;
+  background: var(--color-card-bg);
   border-radius: $radius-xl;
   padding: $space-lg;
   transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
-  border: 1px solid rgba($charcoal, 0.06);
+  border: 1px solid var(--color-border);
   
   &:hover {
     transform: translateY(-6px);
-    box-shadow: $shadow-card-hover;
-    border-color: rgba($warm, 0.2);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba($warm, 0.3);
     
     .icon {
       transform: scale(1.05);
@@ -71,12 +71,12 @@
   
   h3 {
     margin-bottom: $space-xs;
-    color: $charcoal;
+    color: var(--color-heading);
     font-size: 1.25rem;
   }
   
   p {
-    color: $gray-600;
+    color: var(--color-text-muted);
     font-size: 1rem;
     line-height: 1.65;
     margin: 0;
