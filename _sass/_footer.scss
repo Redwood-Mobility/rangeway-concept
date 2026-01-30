@@ -1,7 +1,23 @@
+// ==========================================================================
+// Site Footer - Refined closure
+// ==========================================================================
+
 .site-footer {
-  background: $charcoal;
+  background: $charcoal-deep;
   color: $white;
   padding: $space-xl 0 $space-lg;
+  position: relative;
+  
+  // Warm accent line at top
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($warm, 0.3), transparent);
+  }
 }
 
 .footer-inner {
@@ -11,16 +27,30 @@
   
   @media (min-width: $bp-lg) {
     padding: 0 $space-lg;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: $space-xl;
+    align-items: start;
   }
 }
 
 .footer-brand {
   margin-bottom: $space-lg;
   
+  @media (min-width: $bp-lg) {
+    margin-bottom: 0;
+  }
+  
+  .footer-mark {
+    margin-bottom: $space-sm;
+  }
+  
   p {
-    margin-top: $space-sm;
+    margin-top: 0;
     color: $gray-400;
     font-size: 1rem;
+    max-width: 280px;
+    line-height: 1.6;
   }
 }
 
@@ -30,32 +60,52 @@
   gap: $space-xl;
   margin-bottom: $space-lg;
   padding-bottom: $space-lg;
-  border-bottom: 1px solid rgba($white, 0.1);
+  border-bottom: 1px solid rgba($white, 0.08);
+  
+  @media (min-width: $bp-lg) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    gap: $space-xxl;
+  }
 }
 
 .footer-col {
   h4 {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-family: $font-heading;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     margin-bottom: $space-sm;
-    color: $gray-400;
+    color: $white;
   }
   
   a {
     display: block;
     font-size: 0.9375rem;
-    color: rgba($white, 0.8);
-    margin-bottom: $space-xs;
+    color: rgba($white, 0.65);
+    margin-bottom: 0.625rem;
+    transition: color $transition-fast;
     
     &:hover {
       color: $warm;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
 
 .footer-bottom {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: $gray-400;
+  padding-top: $space-lg;
+  margin-top: $space-lg;
+  border-top: 1px solid rgba($white, 0.08);
+  
+  @media (min-width: $bp-lg) {
+    grid-column: 1 / -1;
+  }
 }
