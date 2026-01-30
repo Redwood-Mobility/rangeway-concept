@@ -1,23 +1,46 @@
+// ==========================================================================
+// Hero Section - Premium first impression
+// ==========================================================================
+
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, $charcoal 0%, lighten($charcoal, 8%) 100%);
+  background: linear-gradient(160deg, $charcoal-deep 0%, $charcoal 40%, $charcoal-light 100%);
   color: $white;
-  padding: calc($space-xxl + 60px) 0 $space-xxl;
+  padding: calc($space-xxl + 80px) 0 $space-xxl;
   position: relative;
   overflow: hidden;
   
+  // Warm ambient glow
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -20%;
+    right: -10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse at 60% 40%, rgba($warm, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+  
+  // Subtle secondary glow
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
     width: 60%;
-    height: 100%;
-    background: radial-gradient(ellipse at 70% 30%, rgba($warm, 0.08) 0%, transparent 60%);
+    height: 60%;
+    background: radial-gradient(circle at center, rgba($warm, 0.04) 0%, transparent 50%);
     pointer-events: none;
   }
+}
+
+@keyframes heroGlow {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
 }
 
 .hero-inner {
@@ -25,7 +48,7 @@
   margin: 0 auto;
   padding: 0 $space-md;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   
   @media (min-width: $bp-lg) {
     padding: 0 $space-lg;
@@ -34,35 +57,57 @@
 
 .hero-content {
   max-width: 720px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba($warm, 0.15);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  background: rgba($warm, 0.12);
+  padding: 0.5rem 1.25rem;
+  border-radius: $radius-pill;
+  font-size: 0.8125rem;
+  font-weight: 600;
   color: $warm;
   margin-bottom: $space-md;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba($warm, 0.15);
 }
 
 .hero-title {
   margin-bottom: $space-md;
   
   .highlight {
-    color: $warm;
+    // Premium gradient text
+    background: linear-gradient(135deg, $warm 0%, lighten($warm, 15%) 50%, $warm 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  line-height: 1.6;
-  color: rgba($white, 0.8);
+  line-height: 1.65;
+  color: rgba($white, 0.75);
   margin-bottom: $space-lg;
-  max-width: 560px;
+  max-width: 540px;
+  
+  @media (min-width: $bp-md) {
+    font-size: 1.375rem;
+  }
 }
 
 .hero-cta {
@@ -74,21 +119,34 @@
 
 .hero-note {
   margin-top: $space-md;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: $gray-400;
+  letter-spacing: 0.01em;
 }
 
-// Floating decorative elements
+// Floating decorative R mark
 .hero-decoration {
   position: absolute;
-  right: 5%;
+  right: 3%;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.06;
+  opacity: 0.04;
+  color: $warm;
   pointer-events: none;
   display: none;
   
   @media (min-width: $bp-lg) {
     display: block;
+    animation: floatMark 6s ease-in-out infinite;
   }
+  
+  @media (min-width: $bp-xl) {
+    right: 8%;
+    opacity: 0.05;
+  }
+}
+
+@keyframes floatMark {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-52%) translateX(-8px); }
 }

@@ -1,20 +1,36 @@
-// Buttons
+// ==========================================================================
+// Buttons - Premium tactile feel
+// ==========================================================================
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   font-family: $font-heading;
   font-weight: 600;
   font-size: 0.9375rem;
-  border-radius: 100px;
+  border-radius: $radius-pill;
   border: none;
   cursor: pointer;
   transition: all $transition-base;
   text-decoration: none;
+  white-space: nowrap;
+  position: relative;
   
   &:hover {
     transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  // Ensure focus visible works
+  &:focus-visible {
+    outline: 2px solid $warm;
+    outline-offset: 3px;
   }
 }
 
@@ -23,28 +39,44 @@
   color: $charcoal;
   
   &:hover {
+    background: $warm-hover;
+    box-shadow: $shadow-warm;
+  }
+  
+  &:active {
     background: $warm-dark;
-    box-shadow: 0 8px 24px rgba($warm, 0.3);
   }
 }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid currentColor;
+  border: 2px solid rgba($white, 0.4);
+  color: $white;
   
   &:hover {
-    background: rgba($white, 0.1);
+    border-color: $white;
+    background: rgba($white, 0.08);
+  }
+}
+
+.btn-outline-dark {
+  border: 2px solid rgba($charcoal, 0.2);
+  color: $charcoal;
+  
+  &:hover {
+    border-color: $charcoal;
+    background: rgba($charcoal, 0.05);
   }
 }
 
 .btn-sm {
-  padding: 0.625rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   font-size: 0.875rem;
 }
 
 .btn-lg {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+  padding: 1rem 2.25rem;
+  font-size: 1.0625rem;
 }
 
 // Kicker text
