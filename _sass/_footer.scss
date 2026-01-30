@@ -52,6 +52,31 @@
     max-width: 280px;
     line-height: 1.6;
   }
+  
+  .social-icons {
+    display: flex;
+    gap: $space-sm;
+    margin-top: $space-md;
+    
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba($white, 0.1);
+      color: rgba($white, 0.7);
+      font-size: 1.125rem;
+      transition: background $transition-fast, color $transition-fast, transform $transition-fast;
+      
+      &:hover {
+        background: $warm;
+        color: $charcoal;
+        transform: translateY(-2px);
+      }
+    }
+  }
 }
 
 .footer-links {
