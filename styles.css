@@ -186,13 +186,14 @@ h4,
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: var(--container-width);
+    max-width: 900px;
     width: 100%;
     padding: 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* Parallax Backgrounds */
@@ -244,16 +245,25 @@ h4,
 
 /* Use Case Bullets */
 .use-case-bullets {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .bullet-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    font-size: 1.1rem;
+    gap: 8px;
+    margin-bottom: 0;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* CTA Group */
@@ -261,6 +271,7 @@ h4,
     display: flex;
     align-items: flex-start;
     gap: 24px;
+    justify-content: center;
 }
 
 .cta-wrapper {
